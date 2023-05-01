@@ -1,3 +1,3 @@
-    <script src="../public/assets/js/main.js"></script>
+    <script src="../src/assets/js/main.js"></script>
 </body>
 </html>
