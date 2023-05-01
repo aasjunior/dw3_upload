@@ -13,7 +13,7 @@
         <div class="row my-3">
             <div class="col-6">
                 <label class="form-label">Selecione as imagens</label>    
-                <input type="file" class="form-control" name="arquivo[]" multiple="multiple" accept="image/png" required>
+                <input type="file" id="file" class="form-control" name="arquivo[]" multiple="multiple" accept="image/png" required>
             </div>
             <div class="col-4">
                     <label class="form-label" for="select_tamanho_arquivo">Selecione o tamanho maximo das imagens:</label>
@@ -29,6 +29,7 @@
                 </div>
             </div>
         </div>
+        <div id="uploads" class="row"></div>
         <input type="submit" id="btnEnviar" class="btn btn-primary" name="enviar" value="Enviar">
     </form>
     <hr>
