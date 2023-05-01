@@ -1,13 +1,13 @@
 <?php
     include('../models/conn.php');
-    include('../public/assets/php/scripts.php');
+    include('../src/assets/helpers/scripts.php');
 
     $arquivo = $_FILES['arquivo'] ?? FALSE;
 
     for($k=0; $k < count($arquivo['name']); $k++){
         if($arquivo['size'][$k] <= $_POST['select_tamanho_arquivo'] && $arquivo['type'][$k] === "image/png"){
                 if($nome = md5Random($arquivo['name'][$k])){
-                    $destino = "../public/uploads/".$nome.".png";
+                    $destino = "../src/uploads/".$nome.".png";
                     if(move_uploaded_file($arquivo['tmp_name'][$k], $destino)){
                         mysqli_query($conn, "INSERT INTO imagesPNG(dir) values('$destino')");
                         header("location:../views/inicio.php");

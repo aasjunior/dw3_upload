@@ -2,8 +2,8 @@
     include('../models/conn.php');
     include('./blades/header.php');
 
-    if(!file_exists("../public/uploads")){
-        mkdir("../public/uploads");
+    if(!file_exists("../src/uploads")){
+        mkdir("../src/uploads");
     }
 ?>
     <form name="upload" action="../controllers/upload.php" method="post" enctype="multipart/form-data">
