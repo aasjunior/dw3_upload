@@ -1,7 +1,6 @@
 <?php 
     include('../models/conn.php');
     include('./blades/header.php');
-    include('./components/modal.php');
 
     if(!file_exists("../src/uploads")){
         mkdir("../src/uploads");
@@ -62,5 +61,6 @@
     </table>
 </main>
 <?php
+    include('./components/modal.php');
     include('./blades/footer.php'); 
 ?>
