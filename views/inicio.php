@@ -1,6 +1,10 @@
 <?php 
     include('../models/conn.php');
-    include('./blades/header.php'); 
+    include('./blades/header.php');
+
+    if(!file_exists("../public/assets/uploads")){
+        mkdir("../public/assets/uploads");
+    }
 ?>
     <form name="upload" action="../controllers/upload.php" method="post" enctype="multipart/form-data">
         <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="1000000">
