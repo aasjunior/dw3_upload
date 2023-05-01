@@ -8,6 +8,32 @@ $('#file').on('change', function(){
     filePreview(this, maxSize);
 });
 
+$('#modal-delete').on('show.bs.modal', function (event) {
+    let button = $(event.relatedTarget);
+    let id = button.data('id');
+    let modal = $(this);
+    modal.find('#deletar').data('id', id);
+});
+
+$('#deletar').on('click', function(event){
+    let id = $(this).data('id');
+    $('#modal-delete').modal('hide');
+    $.ajax({
+        url: '../controllers/delete.php',
+        type: 'POST',
+        data: { id: id },
+        success: function(response){
+            showAlert(response, true);
+        },
+        error: function(xhr, status, error) {
+            showAlert('Ocorreu um erro ao processar a solicitação');
+            console.error(xhr.responseText);
+        }
+    });
+});
+
+// Functions
+
 filePreview = (input, maxSize) => {
     for(let i=0; i<input.files.length; i++){
         if(input.files[i].type === "image/png" && input.files[i].size <= maxSize){
@@ -29,9 +55,15 @@ filePreview = (input, maxSize) => {
     }
 }
 
-showAlert = (msg) => {
+showAlert = (msg, reload = false) => {
     const alert = document.getElementById('alert');
 
     alert.querySelector("#modal-text").textContent = msg;
     $('#alert').modal('show');
+
+    if(reload==true){
+        $('#alert').on('hidden.bs.modal', function(){
+            window.location.reload();
+        });
+    }
 }

@@ -51,7 +51,7 @@
                             ?>
                         </td>
                         <td>
-                            <a href="../controllers/delete.php?id=<?php echo $exibe[0] ?>">Excluir</a>
+                            <a class="btn btn-danger" data-bs-toggle='modal' data-bs-target="#modal-delete" data-id="<?php echo $exibe[0] ?>"><span class='material-symbols-outlined'>delete</span></a>
                         </td>
                     </tr>
             <?php
