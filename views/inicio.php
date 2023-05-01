@@ -1,13 +1,14 @@
 <?php 
     include('../models/conn.php');
     include('./blades/header.php');
+    include('./components/modal.php');
 
     if(!file_exists("../src/uploads")){
         mkdir("../src/uploads");
     }
 ?>
-<main class="container bg-white mt-5 rounded-2 p-3 shadow-lg">
-    <form name="upload" action="../controllers/upload.php" method="post" enctype="multipart/form-data">
+<main id="main" class="container bg-white mt-5 rounded-2 p-3 shadow-lg">
+    <form id="forms" name="upload" action="../controllers/upload.php" method="post" enctype="multipart/form-data">
         <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="1000000"> 
         <div class="row my-3">
             <div class="col-6">
@@ -28,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <input type="submit" class="btn btn-primary" name="enviar" value="Enviar">
+        <input type="submit" id="btnEnviar" class="btn btn-primary" name="enviar" value="Enviar">
     </form>
     <hr>
     <table class="table table-bordered table-striped table-hover">
@@ -59,4 +60,6 @@
         </tbody>
     </table>
 </main>
-<?php include('./blades/footer.php'); ?>
+<?php
+    include('./blades/footer.php'); 
+?>
